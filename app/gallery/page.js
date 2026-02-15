@@ -20,6 +20,11 @@ export default function GalleryPage() {
       { id: 9, src: '/JaneNinth.jpeg', alt: 'Soft lighting for a private, relaxed moment', span: 'md:col-span-1 md:row-span-1', tag: 'Atmosphere' },
       { id: 10, src: '/JaneTenth.jpeg', alt: 'A velvet lounge feel — warm, discreet, and refined', span: 'md:col-span-2 md:row-span-2', tag: 'Atmosphere' },
       { id: 11, src: '/JaneEleventh.jpeg', alt: 'Small details curated for a premium experience', span: 'md:col-span-1 md:row-span-1', tag: 'Details' },
+      { id: 12, src: '/JaneTwelth.jpeg', alt: 'Soft velvet tones with a clean, private finish', span: 'md:col-span-1 md:row-span-1', tag: 'Atmosphere' },
+      { id: 13, src: '/JaneThirteenth.jpeg', alt: 'Premium setup prepared for a calm session', span: 'md:col-span-2 md:row-span-1', tag: 'Setup' },
+      { id: 14, src: '/JaneFourtenth.jpeg', alt: 'Warm details curated for comfort and discretion', span: 'md:col-span-1 md:row-span-2', tag: 'Details' },
+      { id: 15, src: '/JaneFifteenth.jpeg', alt: 'A quiet, refined corner designed for relaxation', span: 'md:col-span-1 md:row-span-1', tag: 'Atmosphere' },
+      { id: 16, src: '/JaneSixteenth.jpeg', alt: 'A final premium touch — clean, warm, and intentional', span: 'md:col-span-1 md:row-span-1', tag: 'Details' },
     ],
     []
   );

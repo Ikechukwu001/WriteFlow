@@ -47,10 +47,50 @@ export default function PricingPage() {
   };
 
   const openTelegram = () => {
-    // If you want a direct link, replace with your real Telegram profile URL if you have it
-    // Example: https://t.me/JANEJOSLYN_JACINTA (without the @)
     window.open('https://t.me/JANEJOSLYN_JACINTA', '_blank', 'noopener,noreferrer');
   };
+
+  // ✅ Added: “extra payment methods” cards (no addresses)
+  const paymentOptions = useMemo(
+    () => [
+      {
+        key: 'ethereum',
+        title: 'Ethereum (ETH)',
+        subtitle: 'Ethereum payments accepted',
+        cta: 'Contact for ETH details',
+        badge: 'Ξ',
+      },
+      {
+        key: 'paypal',
+        title: 'PayPal',
+        subtitle: 'Quick and secure payment via PayPal',
+        cta: 'Contact for PayPal details',
+        badge: 'P',
+      },
+      {
+        key: 'bitcoin',
+        title: 'Bitcoin (BTC)',
+        subtitle: 'Cryptocurrency payments accepted',
+        cta: 'Contact for BTC details',
+        badge: '₿',
+      },
+      {
+        key: 'chime',
+        title: 'Chime',
+        subtitle: 'Send payment via Chime',
+        cta: 'Contact for Chime details',
+        badge: '🏦',
+      },
+      {
+        key: 'applepay',
+        title: 'Apple Pay',
+        subtitle: 'Send payment via Apple Pay',
+        cta: 'Contact for Apple Pay details',
+        badge: '',
+      },
+    ],
+    []
+  );
 
   return (
     <section className="relative w-full bg-background py-20 md:py-32 overflow-hidden">
@@ -343,6 +383,32 @@ export default function PricingPage() {
           </div>
         </div>
 
+        {/* ✅ NEW SECTION (added at the bottom): Payment option boxes like your screenshot */}
+        <div className="mt-20">
+          <div className="text-center mb-10">
+            <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
+              More payment options
+            </p>
+            <h2 className="mt-4 text-3xl md:text-4xl font-serif font-bold text-foreground">
+              Multiple payment methods available
+            </h2>
+            <div className="w-24 h-1 bg-accent mx-auto rounded-full mt-5" />
+            <p className="mt-5 text-muted-foreground max-w-2xl mx-auto">
+              Tap any method below to contact us and get the correct payment details.
+            </p>
+          </div>
+
+          {/* mobile: stacked | desktop: grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+            {paymentOptions.map((m) => (
+              <PaymentOptionCard key={m.key} method={m} />
+            ))}
+          </div>
+
+          <div className="mt-8 rounded-3xl border border-border bg-card/70 backdrop-blur-xl p-6 text-sm text-muted-foreground">
+            For safety and accuracy, payment details are shared only in direct contact.
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -359,5 +425,43 @@ function Step({ icon, title, text }) {
         <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{text}</p>
       </div>
     </div>
+  );
+}
+
+function PaymentOptionCard({ method }) {
+  return (
+    <Link
+      href={`/contact?payment=${encodeURIComponent(method.title)}`}
+      className="
+        group block rounded-3xl border border-border
+        bg-card/80 backdrop-blur-xl
+        shadow-sm hover:shadow-xl
+        transition-all duration-300
+        overflow-hidden
+      "
+      aria-label={`Open contact to pay with ${method.title}`}
+    >
+      {/* top sheen */}
+      <div className="pointer-events-none h-12 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-70" />
+
+      <div className="p-8">
+        {/* icon */}
+        <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-border bg-background/40 text-2xl text-foreground">
+          <span className="group-hover:scale-105 transition-transform">{method.badge}</span>
+        </div>
+
+        <h3 className="text-center text-xl font-serif font-bold text-foreground">
+          {method.title}
+        </h3>
+
+        <p className="mt-2 text-center text-sm text-muted-foreground">
+          {method.subtitle}
+        </p>
+
+        <p className="mt-4 text-center text-sm font-semibold text-accent">
+          {method.cta}
+        </p>
+      </div>
+    </Link>
   );
 }

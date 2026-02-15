@@ -35,7 +35,7 @@ export default function ServicesSection() {
     },
     {
       id: 4,
-      title: 'Sensory Lounge',
+      title: 'Erotic Massage',
       description:
         'A refined, discreet experience crafted around comfort, boundaries, and mindful touch.',
       image: '/JaneNinth.jpeg',

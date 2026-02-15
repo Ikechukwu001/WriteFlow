@@ -425,11 +425,6 @@ export default function ReviewsPage() {
               </div>
             </form>
           </div>
-
-          <p className="mt-6 text-sm text-muted-foreground">
-            If reviews are not saving, check your Supabase Row Level Security (RLS) policies for{' '}
-            <span className="text-foreground font-medium">insert</span>.
-          </p>
         </div>
       </div>
     </section>
