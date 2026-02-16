@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Jenna’s Lounge | Private Massage Sessions",
+  title: "Joslyn’s Lounge | Private Massage Sessions",
   description:
     "Discreet, private lounge sessions designed for relaxation and respectful connection. By reservation only.",
 };
